@@ -1,0 +1,13 @@
+<a href="{% url 'homeuser' %}">Torna Indietro</a>
+<title>Messaggi Inviati</title>
+<center>
+<h2>Messaggi Inviati</h2>
+{% if messaggi %}
+  <ul>
+    {% for messaggio in messaggi %}
+      <li><strong>A: {{ messaggio.destinatario.username }}</strong> - {{ messaggio.testo }} ({{ messaggio.data_invio }})</li>
+    {% endfor %}
+  </ul>
+{% else %}
+    <h3>Non ci sono messaggi inviati</h3>
+{% endif %}

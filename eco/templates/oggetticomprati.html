@@ -1,0 +1,25 @@
+<a href="{% url 'homeuser' %}">Torna Indietro</a>
+<center>
+<title>Comprati</title>
+<body>
+<h1>Oggetti Comprati</h1>
+<ul>
+
+{%for item in oggetti%}
+<li> Nome: {{item.a.ogg.nome}} 
+<li> Categoria: {{item.a.ogg.categoria}}
+<li> Dettagli: {{item.a.ogg.dettagli}}
+<li> Prezzo iniziale: {{item.a.ogg.prezzo}}
+<li> Prezzo finale d'acquisto: {{item.pz.importo}}
+<li> Data fine asta: {{item.a.ogg.data}}
+<li> Stato: {{item.a.stato}}
+<li> Venditore: {{item.a.venditore}}
+<li> <img src="{{item.a.ogg.image.url}}">
+<br>
+<br>
+{%empty%}
+<li> Nessun Oggetto Comprato trovato
+{%endfor%}
+</ul>
+</body>
+</center>

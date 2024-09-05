@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Revisione Oggetto</title>
+</head>
+<a href="{% url 'homeadmin' %}">Torna Indietro</a>
+<center>
+<body>
+    <h1>Revisione Oggetto</h1>
+    <h2>{{ oggetto.nome }}</h2>
+    <p>Categoria: {{ oggetto.categoria }}</p>
+    <p>Dettagli: {{ oggetto.dettagli }}</p>
+    <p>Prezzo: €{{ oggetto.prezzo }}</p>
+    <p>Data: {{ oggetto.data }}</p>
+    <img src="{{ oggetto.image.url }}" alt="{{ oggetto.nome }}" width="300">
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" name="approva">Approva</button>
+        <button type="submit" name="nega">Nega</button>
+    </form>
+</center> 
+</body>
+</html>

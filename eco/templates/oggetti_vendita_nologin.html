@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Oggetti in Vendita</title>
+</head>
+<body>
+    <a href="{% url 'home' %}">Torna Indietro</a>
+    <center>
+    <h1>Lista degli Oggetti in Vendita</h1>
+    <h3>Crea un account per fare offerte</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Prezzo</th>
+                <th>Data</th>
+                <th>Immagine</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for oggetto in oggetti %}
+                <tr>
+                    <td>{{ oggetto.nome }}</td>
+                    <td>{{ oggetto.prezzo }}</td>
+                    <td>{{ oggetto.data }}</td>
+                    <td><img src="{{oggetto.image.url}}" width="200" height="200"></td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5">Nessun oggetto in vendita trovato.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

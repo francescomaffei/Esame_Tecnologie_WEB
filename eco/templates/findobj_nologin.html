@@ -1,0 +1,9 @@
+<a href="{% url 'home' %}">Torna Indietro</a>
+<center>
+<title>Cerca</title>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">invia</button>
+</form>
+<center>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ oggetto.nome }}</title>
+</head>
+{% if context.is_admin %}
+    <a href="{% url 'homeadmin' %}">Torna Indietro</a>
+{% else %}
+    <a href="{% url 'homeuser' %}">Torna Indietro</a>
+{% endif %}
+<body>
+<center>
+    <h1>{{ oggetto.nome }}</h1>
+    <img src="{{ oggetto.image.url }}" alt="{{ oggetto.nome }}">
+    <p><strong>Categoria:</strong> {{ oggetto.categoria }}</p>
+    <p><strong>Dettagli:</strong> {{ oggetto.dettagli }}</p>
+    <p><strong>Prezzo di partenza:</strong> {{ oggetto.prezzo }} €</p>
+    <p><strong>Data fine asta:</strong> {{ oggetto.data }}</p>
+    <p><strong>Stato:</strong> {{ oggetto.stato }}</p>
+    
+    <h2>Fai un'offerta</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Invia Offerta</button>
+    </form>
+
+    <h2>Ultime Offerte</h2>
+    <ul>
+        {% for offerta in ultime_offerte %}
+            <li>{{ offerta.utente }} ha offerto {{ offerta.importo }} € il {{ offerta.data_offerta }}</li>
+        {% endfor %}
+    </ul>
+</center>
+    
+</body>
+</html>

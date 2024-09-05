@@ -1,0 +1,26 @@
+<a href="{% url 'homeadmin' %}">Torna Indietro</a>
+<center>
+<h1>Aste terminate</h1>
+
+<h2>Acquisti di Oggi</h2>
+
+{% if acquisti_oggi %}
+    <ul>
+        {% for item in acquisti_oggi %}
+            <li>
+                <h3>{{ item.a.ogg.nome }}</h3>
+                <img src="{{oggetto.image.url}}">
+                <p>Venditore: {{ item.a.venditore }}</p>
+                <p>Prezzo di partenza: {{ item.a.ogg.prezzo }}</p>
+                
+                {% if item.off %}
+                    <p>Offerta più alta: {{ item.off.importo }} da {{ item.a.compratore }}</p>
+                {% else %}
+                    <p>Nessuna offerta registrata.</p>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Non ci sono acquisti per oggi.</p>
+{% endif %}

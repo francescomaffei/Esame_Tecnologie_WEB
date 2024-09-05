@@ -1,0 +1,20 @@
+<a href="{% url 'homeuser' %}">Torna Indietro</a>
+<title>Notifiche</title>
+<center>
+     <h2>Tutte le notifiche</h2>
+    <table border="1">
+        <tbody>
+            {% for n in noti %}
+                <tr>
+                    <td>{{n.time}}</td>
+                    <td>{{n.messaggio}}</td>
+                    <td>{{n.oggetto.nome}}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5">Nessuna notifica.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</center>

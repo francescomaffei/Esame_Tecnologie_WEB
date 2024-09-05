@@ -1,0 +1,26 @@
+<a href="{% url 'homeuser' %}">Torna Indietro</a>
+<center>
+<br>
+<form action="" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+<h2>Nome:</h2> 
+{{form.nome}}
+<h2>Categoria:</h2>
+{{form.categoria}}
+<br>
+<h2>Dettagli:</h2>
+{{form.dettagli}}
+<br>
+<h2>Prezzo:</h2>
+{{form.prezzo}}
+<br>
+<h2>Data fine asta:</h2>
+<h4>YYYY-MM-GG</h4>
+{{form.data}}
+<br>
+<h2>Immagine:</h2>
+{{form.image}}
+<br>
+<br>
+<button type="submit">Registra Oggetto</button></form>
+</center>

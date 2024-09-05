@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visualizza Acquisti</title>
+</head>
+<body>
+<a href="{% url 'homeadmin' %}">Torna Indietro</a>
+<center>
+    <h1>Lista degli Acquisti</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Compratore</th>
+                <th>Venditore</th>
+                <th>Oggetto</th>
+                <th>Stato</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for acquisto in acq %}
+                <tr>
+                    <td>{{ acquisto.compratore }}</td>
+                    <td>{{ acquisto.venditore }}</td>
+                    <td>{{ acquisto.ogg.nome }}</td>
+                    <td>{{ acquisto.stato }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="4">Nessun acquisto trovato.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

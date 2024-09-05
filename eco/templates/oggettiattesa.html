@@ -1,0 +1,22 @@
+<a href="{% url 'homeuser' %}">Torna Indietro</a>
+<center>
+<title>Attesa</title>
+<body>
+<h1>Oggetti in Attesa</h1>
+<ul>
+{%for a in acq%}
+<li> Nome: {{a.ogg.nome}} 
+<li> Categoria: {{a.ogg.categoria}}
+<li> Dettagli: {{a.ogg.dettagli}}
+<li> Prezzo: {{a.ogg.prezzo}}
+<li> Data fine asta: {{a.ogg.data}}
+<li> Stato: {{a.stato}}
+<li> <img src="{{a.ogg.image.url}}">
+<br>
+<br>
+{%empty%}
+<li> Nessun Oggetto in Attesa
+{%endfor%}
+</ul>
+</body>
+</center>

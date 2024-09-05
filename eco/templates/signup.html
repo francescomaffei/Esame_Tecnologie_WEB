@@ -1,0 +1,21 @@
+ <a href="{% url 'home' %}">Torna Indietro</a>
+ <title>Signup</title>
+<h1>Signup</h1>
+<form method="POST">
+    {% csrf_token %}
+    {% for field in form %}
+    <label class="control-label col-xs-4">{{ field.label_tag }}</label>
+    {{ field }}
+    <br>
+    <br>
+    {% endfor %}
+    {% for field in form2 %}
+    <label class="control-label col-xs-4">{{ field.label_tag }}</label>
+    {{ field }}
+    <br>
+    <br>
+    {% endfor %}
+    
+    <button type="submit">Registrati</button>
+    <a href="{% url 'login' %}">Hai già un account?</a>
+</form>

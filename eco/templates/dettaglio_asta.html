@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafico Asta</title>
+</head>
+<a href="{% url 'homeuser' %}">Torna Indietro</a>
+<center>
+<body>
+    <h1>Tutte le offerte per {{ obj.nome }}</h1>
+    <img src="data:image/png;base64,{{ grafico }}" alt="Grafico delle offerte">
+    <br>
+    {% for off in offerte %}
+        <tr>
+            <td>Utente: {{off.utente}}</td>
+            <td>Offerta: {{off.importo}}</td>
+            <td>Data Offerta: {{off.data_offerta}}</td>
+            <br>
+        </tr>
+    {% endfor %}
+</body>
+</html>

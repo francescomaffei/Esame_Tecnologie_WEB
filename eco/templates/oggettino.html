@@ -1,0 +1,22 @@
+<a href="{% url 'homeuser' %}">Torna Indietro</a>
+<center>
+<title>Scaduti o Negati</title>
+<body>
+<h1>Oggetti Scaduti o Negati</h1>
+<ul>
+{%for a in acq2%}
+<li> Nome: {{a.ogg.nome}} 
+<li> Categoria: {{a.ogg.categoria}}
+<li> Dettagli: {{a.ogg.dettagli}}
+<li> Prezzo: {{a.ogg.prezzo}}
+<li> Data fine asta: {{a.ogg.data}}
+<li> Stato: {{a.stato}}
+<li> <img src="{{a.ogg.image.url}}">
+<br>
+<br>
+{%empty%}
+<li> Nessun Oggetto Scaduto o Negato trovato
+{%endfor%}
+</ul>
+</body>
+</center>

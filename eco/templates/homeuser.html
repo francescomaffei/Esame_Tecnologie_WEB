@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+<title>HomePage</title>
+<style>
+        .right{
+                text-align:right;
+                margin-right:150px
+        }
+</style>
+</head>
+<center>
+<div class="right">
+        <a href="{% url 'messaggi' %}">Messaggi</a>
+        <a href="{% url 'notifiche' %}">Notifiche</a>
+        <a href="{% url 'profilo' %}">Visualizza profilo</a>
+</div>
+
+<h1>Welcome!</h1>
+
+<h2>Questa è la pagina user</h2>
+{{ request.user.username }}
+<br><br>
+
+        <a href ="{% url 'tutti' %}">Visualizza tutti gli Oggetti</a>
+        <br>
+        <a href ="{% url 'findobj' %}">Cerca Oggetti</a>
+        <br>
+        <a href ="{% url 'sell' %}">Vendi Oggetti</a>
+        <br>
+        <a href ="{% url 'visualizza' %}">Visualizza i tuoi Oggetti</a>
+
+
+<br><br>
+<a href="{% url 'logout' %}">Logout</a>
+
+</center>

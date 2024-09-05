@@ -1,0 +1,9 @@
+{% if request.user.is_authenticated %}
+    <a href="{% url 'homeuser' %}">Torna Indietro</a>
+{% else %}
+    <a href="{% url 'home' %}">Torna Indietro</a>
+{% endif %}
+<title>Errore</title>
+<center>
+<h1>Errore di accesso</h1>
+<h2>E' stato rilevato un errore di accesso alla pagina</h2>

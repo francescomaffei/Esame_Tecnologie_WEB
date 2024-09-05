@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Oggetti in Vendita</title>
+</head>
+<body>
+    {% if request.user.is_authenticated %}
+            {% if context.is_admin %}
+                <a href="{% url 'homeadmin' %}">Torna Indietro</a>
+            {% elif context.is_user %}
+                <a href="{% url 'homeuser' %}">Torna Indietro</a>
+            {% endif %}
+    {% else %}
+        <a href="{% url 'home' %}">Torna Indietro</a>
+    {% endif %}
+    <center>
+    
+    {% if request.user.is_authenticated %}
+    <h1>Lista degli Oggetti in Vendita</h1>
+    {% else %}
+    <h1>Lista degli Oggetti in Vendita</h1>
+    <h3>Crea un account per fare offerte</h3>
+    {% endif %}
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Prezzo</th>
+                <th>Data</th>
+                <th>Immagine</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for oggetto in oggetti %}
+                <tr>
+                    {% if request.user.is_authenticated %}
+                        <td><a href="{% url 'dettaglio_oggetto' oggetto.pk %}">{{ oggetto.nome }}</a></td>
+                    {% else %}
+                        <td>{{ oggetto.nome }}</td>
+                    {% endif %}
+                    <td>{{ oggetto.prezzo }}</td>
+                    <td>{{ oggetto.data }}</td>
+                    <td><img src="{{oggetto.image.url}}" width="200" height="200"></td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5">Nessun oggetto in vendita trovato.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

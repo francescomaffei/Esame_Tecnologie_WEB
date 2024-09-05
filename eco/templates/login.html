@@ -1,0 +1,9 @@
+ <a href="{% url 'home' %}">Torna Indietro</a>
+ <title>Login</title>
+<h1>Login</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" name="button">Login</button>
+    <a href="{% url 'signup' %}">Non hai una account? Crealo qua</a>
+</form>

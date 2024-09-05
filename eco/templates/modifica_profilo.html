@@ -1,0 +1,8 @@
+<title>Profilo</title>
+<a href="{% url 'homeuser' %}">Torna Indietro</a>
+<center>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Salva modifiche</button>
+</form>
